@@ -5,9 +5,9 @@ import { colors } from '../../../pages/utils';
 
 
 
-const Button = ({title}) => {
+const Button = ({title, onPress}) => {
     return(
-        <TouchableOpacity style={styles.wrapper.component}>
+        <TouchableOpacity style={styles.wrapper.component} onPress={onPress}>
             <Text style={styles.text.title}>{title}</Text>
         </TouchableOpacity>
     )
