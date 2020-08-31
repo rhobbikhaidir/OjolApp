@@ -1,26 +1,64 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
-import { Input } from '../../component/atoms';
+import { Input, Button } from '../../component/atoms';
 import { colors } from '../utils';
 import { IconBack, RegisterIllustration } from '../../assests';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 
 
 const Register = () => {
+    const [form, setForm]= useState({
+        fullName: '',
+        email: '',
+        password: '',
+    })
+
+    // const onInputChange = (value) => {
+    //     setForm({
+    //         ...form,
+    //         fullname: value,
+    //     })
+    // }
+
+    const onInputChange = (value, kosong) => {
+        setForm({
+            ...form,
+            [kosong ]: value
+        })
+    }
+
+    const sendData = () => {
+        console.log('Data yang di Kirim', form)
+    }
     return(
         <View style={styles.wrapper.page}>
             <IconBack width={25} height={25}  />
+            <ScrollView showsVerticalScrollIndicator={false}>
             <RegisterIllustration width={180} height={115} style={styles.wrapper.illustration} />
             <Text style={styles.wrapper.desc}>
                 Mohon mengisi beberapa data untuk proses daftar anda
             </Text>
             <View style={styles.space(64)}/>
-            <Input placeholder="nama lengkap" />
+            <Input placeholder="nama lengkap"  
+            value={form.fullName}
+            onChangeText={(value) => onInputChange(value, 'fullName')}
+            />
             <View style={styles.space(33)} />
-            <Input placeholder="email"/>
+            <Input placeholder="email" 
+            value={form.email}
+            onChangeText={(value) => onInputChange(value, 'email')}
+            />
             <View style={styles.space(33)} />
-            <Input placeholder="password"/>
+            <Input placeholder="password" 
+            value={form.password}
+            onChangeText={(value) => onInputChange(value, 'password')}
+            // secureTextEntry={true}
+            />
+            <View style={styles.space(83)}/>
+            <Button title="Daftar" onPress={sendData}/>
+            </ScrollView>
         </View>
     )
 }
