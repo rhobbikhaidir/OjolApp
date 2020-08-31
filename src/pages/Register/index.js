@@ -4,23 +4,20 @@ import { Input, Button } from '../../component/atoms';
 import { colors } from '../utils';
 import { IconBack, RegisterIllustration } from '../../assests';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useSelector } from 'react-redux';
 
 
 
 
 const Register = () => {
+    const globalState= useSelector((state) => state);
+
+
     const [form, setForm]= useState({
         fullName: '',
         email: '',
         password: '',
     })
-
-    // const onInputChange = (value) => {
-    //     setForm({
-    //         ...form,
-    //         fullname: value,
-    //     })
-    // }
 
     const onInputChange = (value, kosong) => {
         setForm({
@@ -38,7 +35,7 @@ const Register = () => {
             <ScrollView showsVerticalScrollIndicator={false}>
             <RegisterIllustration width={180} height={115} style={styles.wrapper.illustration} />
             <Text style={styles.wrapper.desc}>
-                Mohon mengisi beberapa data untuk proses daftar anda
+                Mohon mengisi beberapa data untuk proses daftar anda {globalState.name}
             </Text>
             <View style={styles.space(64)}/>
             <Input placeholder="nama lengkap"  
