@@ -10,7 +10,11 @@ import { useSelector } from 'react-redux';
 
 
 const Register = () => {
-    const globalState= useSelector((state) => state);
+    const RegisReducer= useSelector((state) => state.RegisterReducer);
+
+    useEffect(() => {
+        console.log('Globa: ',RegisReducer)
+    },[RegisReducer])
 
 
     const [form, setForm]= useState({
@@ -35,7 +39,7 @@ const Register = () => {
             <ScrollView showsVerticalScrollIndicator={false}>
             <RegisterIllustration width={180} height={115} style={styles.wrapper.illustration} />
             <Text style={styles.wrapper.desc}>
-                Mohon mengisi beberapa data untuk proses daftar anda {globalState.name}
+                Mohon mengisi beberapa data untuk proses daftar anda {RegisReducer.title}
             </Text>
             <View style={styles.space(64)}/>
             <Input placeholder="nama lengkap"  
@@ -51,7 +55,7 @@ const Register = () => {
             <Input placeholder="password" 
             value={form.password}
             onChangeText={(value) => onInputChange(value, 'password')}
-            // secureTextEntry={true}
+            secureTextEntry={true}
             />
             <View style={styles.space(83)}/>
             <Button title="Daftar" onPress={sendData}/>
@@ -65,6 +69,8 @@ const styles = {
     wrapper: {
         page: {padding: 20},
         icon: {
+
+            
             width: 25, height: 25, backgroundColor: 'blue'
         },
         illustration: {
