@@ -23,12 +23,12 @@ const Register = () => {
     //     password: '',
     // })
 
-    const onInputChange = (value, inputType) => {
+    const onInputChange = (value, input) => {
         // setForm({
         //     ...form,
         //     [kosong ]: value
-        // })
-        dispatch({type: 'SET_FORM', inputType: input, inputValue: value})
+        // }
+        dispatch(setForm(input, value))
     }
 
     const sendData = () => {

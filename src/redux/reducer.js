@@ -5,7 +5,7 @@ const initialState= {
 }
 
 const initialState1= (state= initialState, action) => {
-   return state
+    return state
 }
 const initialStateRegister={
     form:{

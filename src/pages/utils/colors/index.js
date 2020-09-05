@@ -1,8 +1,8 @@
 export const colors = {
-    default: '#A55eea',
-    disable: '#A5B1c2',
-    dark: '#474747',
-    text: {
-        default: '#7e7e7e'
-    },
-};
+    default: '#a55eea',
+    disable: '#a5b1c2',
+    dark : '#474747',
+        text: {
+            default: '#7e7e7e'
+        }
+}
