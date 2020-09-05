@@ -1,8 +1,8 @@
 import store from './store';
-
-
+import setForm from './action';
 
 
 export {
-    store
+    store,
+    setForm,
 };
