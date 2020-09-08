@@ -1,19 +1,24 @@
 import React, {useEffect} from 'react';
 import {Text, View} from 'react-native';
+import { colors } from '../utils';
 
 
 
 const Splash = ({navigation}) => {
-    useEffect(() => {
-        setTimeout(() => {
-            navigation.replace('WelcomeAuth');
-        }, 2000);
-    });
+    
     return(
-        <View>
-            <Text>Ini adalah Splash Screen</Text>
+        <View style={styles.wrapper}>
+            
         </View>
     )
+}
+
+
+const styles= {
+    wrapper:{
+        backgroundColor: 'white',
+        flex: 1
+    }
 }
 
 

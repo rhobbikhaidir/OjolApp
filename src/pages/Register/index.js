@@ -11,50 +11,38 @@ import { setForm } from '../../redux';
 
 
 const Register = () => {
-    const RegisReducer= useSelector((state) => state.RegisterReducer);
+    const { form }= useSelector((state) => state.RegisterReducer);
     const dispatch= useDispatch();
 
-
-
-
-    // const [form, setForm]= useState({
-    //     fullName: '',
-    //     email: '',
-    //     password: '',
-    // })
-
     const onInputChange = (value, input) => {
-        // setForm({
-        //     ...form,
-        //     [kosong ]: value
-        // }
         dispatch(setForm(input, value))
     }
 
     const sendData = () => {
-        console.log('Data yang di Kirim', RegisReducer.form)
+        console.log('Data yang di Kirim',form)
     }
     return(
         <View style={styles.wrapper.page}>
-            <IconBack width={25} height={25}  />
+            <Button type= "icon" name="kosong" onPress={() => navigation.goBack()}/>
             <ScrollView showsVerticalScrollIndicator={false}>
-            <RegisterIllustration width={180} height={115} style={styles.wrapper.illustration} />
+            <RegisterIllustration width={360} height={150} style={styles.wrapper.illustration} />
             <Text style={styles.wrapper.desc}>
-                Mohon mengisi beberapa data untuk proses daftar anda {RegisReducer.title}
+                Mohon mengisi beberapa data untuk proses daftar anda
             </Text>
             <View style={styles.space(64)}/>
             <Input placeholder="nama lengkap"  
-            value={RegisReducer.form.fullName}
+            value={form.fullName}
             onChangeText={(value) => onInputChange(value, 'fullName')}
             />
             <View style={styles.space(33)} />
             <Input placeholder="email" 
-            value={RegisReducer.form.email}
+            value={form.email}
+
             onChangeText={(value) => onInputChange(value, 'email')}
             />
             <View style={styles.space(33)} />
             <Input placeholder="password" 
-            value={RegisReducer.form.password}
+            value={form.password}
             onChangeText={(value) => onInputChange(value, 'password')}
             secureTextEntry={true}
             />
@@ -69,13 +57,8 @@ const Register = () => {
 const styles = {
     wrapper: {
         page: {padding: 20},
-        icon: {
-
-            
-            width: 25, height: 25, backgroundColor: 'blue'
-        },
         illustration: {
-            marginTop: 8,
+            marginTop: 30,
             },
         desc: {fontSize: 14, 
             fontWeight: 'bold', 
