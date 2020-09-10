@@ -10,7 +10,7 @@ import { setForm } from '../../redux';
 
 
 
-const Register = () => {
+const Register = ({navigation}) => {
     const { form }= useSelector((state) => state.RegisterReducer);
     const dispatch= useDispatch();
 

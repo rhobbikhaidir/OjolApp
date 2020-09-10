@@ -1,43 +1,39 @@
 import React from 'react';
-import {Text} from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { colors } from '../../../pages/utils';
+import {Text} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {colors} from '../../../pages/utils';
 import ButtonIcon from './ButtonIcon';
 
-
-
 const Button = ({title, onPress, type, name}) => {
-if(type === "icon") {
-    return  <ButtonIcon name={name} onPress={onPress}/>
+  if (type === 'icon') {
+    return <ButtonIcon name={name} onPress={onPress} />;
+  }
+
+  return (
+    <TouchableOpacity style={styles.wrapper.component} onPress={onPress}>
+      <Text style={styles.text.title}>{title}</Text>
+    </TouchableOpacity>
+  );
 };
 
-    return(
-        <TouchableOpacity style={styles.wrapper.component} onPress={onPress}>
-            <Text style={styles.text.title}>{title}</Text>
-        </TouchableOpacity>
-    )
-}
-
-
-const styles= {
-    wrapper: {
-        component: {
-            fontSize: 10, 
-            backgroundColor: colors.default, 
-            borderRadius: 25, 
-            paddingVertical: 13
-        }
+const styles = {
+  wrapper: {
+    component: {
+      fontSize: 10,
+      backgroundColor: colors.default,
+      borderRadius: 25,
+      paddingVertical: 13,
     },
-    text: {
-        title: {
-            fontSize: 12, 
-            fontWeight: 'bold', 
-            color: 'white', 
-            textTransform: "uppercase", 
-            textAlign: 'center'
-        }
-    }
-}
-
+  },
+  text: {
+    title: {
+      fontSize: 12,
+      fontWeight: 'bold',
+      color: 'white',
+      textTransform: 'uppercase',
+      textAlign: 'center',
+    },
+  },
+};
 
 export default Button;
