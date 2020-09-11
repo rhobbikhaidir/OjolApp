@@ -15,7 +15,8 @@ import IconBack from './icon/IconBack.svg';
 // Register buat logo Register
 import RegisterIllustration from './image/Register.svg';
 // illustration Login
-import LoginIllustration from './image/Login.svg'
+import LoginIllustration from './image/Login.svg';
+// Helmet Racing for Splash screen
+import HelmRacing from './image/racing.svg';
 
-
-export {Logo, IconBack, RegisterIllustration, LoginIllustration};
+export {Logo, IconBack, RegisterIllustration, LoginIllustration, HelmRacing};

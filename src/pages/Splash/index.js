@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {Text, View, Image} from 'react-native';
-import scooter from '../../assests/image/tangan.png'
 import pola from '../../assests/image/bunga.jpg'
 import { colors } from '../utils';
-import dit from '../../assests/image/kid.jpg'
+import { HelmRacing } from '../../assests';
+
 
 
 
@@ -20,9 +20,12 @@ const Splash = ({navigation}) => {
         <Image source={dit} style={{width: 150, height:150, marginLeft:50, borderRadius: 150/2}}/>
       <Text style={{marginLeft: 3, fontSize: 50, fontWeight:'bold', color: colors.default, }}> -JOL</Text>
         </View> */}
-        <View style={{marginHorizontal: 157, marginTop: 670, }}>
-          <Text style={{color: 'gray'}}>Created by:</Text>
-          <Text style={{color: 'gray', marginLeft: 10,}}>Dithakid</Text>
+        <View style={{marginLeft: 120, marginTop: 200,}}>
+        <HelmRacing width={150} height={150} />
+        </View>
+        <View style={{marginLeft: 160, marginTop: 320, }}>
+          <Text style={{color: 'gray', marginLeft: 10,}}>Created by :</Text>
+          <Text style={{color: 'gray',}}>Rhobbi Khaidir</Text>
         </View>
     </View>
   );
